@@ -6,7 +6,7 @@ import  {bikeArray}  from './mock.js';
       modelSel = document.getElementById("modelSel"),
       sizeSel = document.getElementById("sizeSel"),
       colorSel = document.getElementById("colorSel"),
-      breakSel = document.getElementById("breakSel"),
+      brakeSel = document.getElementById("brakeSel"),
       tireSel = document.getElementById("tireSel"),
       shiftSel = document.getElementById("shiftSel"),
       mudSel = document.getElementById("mudSel"),
@@ -15,7 +15,7 @@ import  {bikeArray}  from './mock.js';
   
     for (var typ in bikeArray) {
       typSel.options[typSel.options.length] = new Option(typ, typ);
-      console.log(bikeArray);
+      
     }
   
     //Give Model
@@ -27,6 +27,7 @@ import  {bikeArray}  from './mock.js';
       for (var model in bikeArray[this.value]) {
         modelSel.options[modelSel.options.length] = new Option(model, model);
       }
+      getPrice(typSel);
     };
   
     typSel.onchange();
@@ -38,47 +39,47 @@ import  {bikeArray}  from './mock.js';
       //display correct values
       if (this.selectedIndex < 1) return; 
       var size = bikeArray[typSel.value][this.value];
-      console.log(size);
       for (var sizeVar = 0; sizeVar < size.Größe.length; sizeVar++) {
         sizeSel.options[sizeSel.options.length] = new Option(
           size.Größe[sizeVar],
           size.Größe[sizeVar]
         );
       }
+      getPrice(modelSel);
     };
     //Give Color
     sizeSel.onchange = function () {
       colorSel.length = 1;
-      breakSel.length = 1;
+      brakeSel.length = 1;
       //display correct values
       if (this.selectedIndex < 1) return; 
       var color = bikeArray[typSel.value][modelSel.value];
-      console.log(color);
       for (var colorVar = 0; colorVar < color.Farbe.length; colorVar++) {
         colorSel.options[colorSel.options.length] = new Option(
           color.Farbe[colorVar],
           color.Farbe[colorVar]
         );
       }
+      getPrice(sizeSel);
     };
-    //Give Breaks
+    //Give Brakes
     colorSel.onchange = function () {
-      breakSel.length = 1;
+      brakeSel.length = 1;
       tireSel.length = 1;
       //display correct values
       if (this.selectedIndex < 1) return; //done
-      var breaks = bikeArray[typSel.value][modelSel.value];
-      console.log(breaks);
-      for (var breakVar = 0; breakVar < breaks.Bremsen.length; breakVar++) {
-        breakSel.options[breakSel.options.length] = new Option(
-          breaks.Bremsen[breakVar],
-          breaks.Bremsen[breakVar]
+      var brakes = bikeArray[typSel.value][modelSel.value];
+      for (var brakeVar = 0; brakeVar < brakes.Bremsen.length; brakeVar++) {
+        brakeSel.options[brakeSel.options.length] = new Option(
+          brakes.Bremsen[brakeVar],
+          brakes.Bremsen[brakeVar],
         );
       }
+      getPrice(colorSel);
     };
   
     //Give Tires
-    breakSel.onchange = function () {
+    brakeSel.onchange = function () {
       tireSel.length = 1;
       //display correct values
       if (this.selectedIndex < 1) return; 
@@ -89,6 +90,7 @@ import  {bikeArray}  from './mock.js';
           tires.Reifen[tireVar]
         );
       }
+      getPrice(brakeSel);
     };
     //Give Shift
     tireSel.onchange = function () {
@@ -102,6 +104,7 @@ import  {bikeArray}  from './mock.js';
           shift.Schaltung[siftVar]
         );
       }
+      getPrice(tireSel);
     };
     //Give Mudguard
     shiftSel.onchange = function () {
@@ -115,6 +118,7 @@ import  {bikeArray}  from './mock.js';
           mud.Schutzblech[mudVar]
         );
       }
+      getPrice(shiftSel);
     };
     //Give Lock
     mudSel.onchange = function () {
@@ -128,6 +132,7 @@ import  {bikeArray}  from './mock.js';
           lock.Schloss[lockVar]
         );
       }
+      getPrice(mudSel);
     };
     //Give Light
     lockSel.onchange = function () {
@@ -141,5 +146,18 @@ import  {bikeArray}  from './mock.js';
           light.Licht[lightVar]
         );
       }
+      getPrice(lockSel);
     };
+
+    lightSel.onchange = function () {
+      getPrice(lightSel);
+    };
+
+    //Get Price 
+    function getPrice(selTyp){
+        var text = selTyp.options[selTyp.selectedIndex].text;
+        console.log(text);
+    }
   };
+
+ 

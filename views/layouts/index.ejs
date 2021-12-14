@@ -35,7 +35,7 @@
                 <select class="selectClass" id="typSel" >
                 
                   <option value="" selected="selected">Typ</option>
-                
+               
                 </select>
                 <br>
                 <label for="exampleInputEmail1">Modell</label>
@@ -53,7 +53,7 @@
             <div class="collapse multi-collapse" id="multiCollapseExample2">
               <div class="card card-body">
                 <label for="exampleInputEmail1">Bremsen</label>
-                <select class="selectClass" id="breakSel" ><option value="" selected="selected">Bremsen</option></select>
+                <select class="selectClass" id="brakeSel" ><option value="" selected="selected">Bremsen</option></select>
                 <br>
                 <label for="exampleInputEmail1">Reifen</label>
                 <select class="selectClass" id="tireSel"><option value="" selected="selected">Reifen</option></select>
@@ -80,8 +80,14 @@
         </div>
       </div>
     </div>
+
+    <ul>
+      <% bike.forEach(function(bikes){ %>
+      <li><%- bikes.size %></li>
+    <%});%>
+ </ul>
   
-    <script type="module" src="./js/bikeCall.js"></script>
+    <!-- <script type="module" src="./js/bikeCall.js"></script>  -->
     <script type="text/javascript" src="./js/collapse.js"></script>
  
 </body>

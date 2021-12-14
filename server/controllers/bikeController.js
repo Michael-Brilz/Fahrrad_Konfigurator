@@ -9,7 +9,9 @@ const Mountainbike = require("../models/Bike");
   try {
     // find all documents
     const bike = await Mountainbike.find({});
-      res.render('./layouts/index', {bike});
+      res.render('./layouts/index', {
+      bike
+      });
   
   } catch (error) {
     res.status(500).send({ message: error.message || "Error Occured" });

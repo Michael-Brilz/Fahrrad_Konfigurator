@@ -10,7 +10,7 @@ const port = process.env.PORT || 4000;
 const routes = require('./server/routes/bike');
 
 
-// View engine setup
+// set the view engine to ejs
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.json());

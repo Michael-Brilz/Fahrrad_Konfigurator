@@ -1,0 +1,48 @@
+{
+  "Mountainbike": {
+    "Cross": {
+      "Größe": [
+        "395 mm",
+        "440 mm",
+        "480 mm",
+        "535 mm"
+      ],
+      "Farbe": [
+        "Himmelblau",
+        "Grasgrün",
+        "Stahlgrau",
+        "Weinrot"
+      ],
+      "Bremsen": [
+        "Shimano Deore BRM6000",
+        "Shimano Deore BRM7000",
+        "Shimano RX810 1x11"
+      ],
+      "Schaltung": [
+        "Shimano GRX 600 2x11",
+        "Shimano GRX 600 2x11",
+        "Shimano GRX 810 Di2 2x11"
+      ],
+      "Reifen": [
+        "Continental X-King (35-622)",
+        "Continental X-King RS (32-622)",
+        "Continental Terra Trail (40-622)"
+      ],
+      "Schutzblech": [
+        "kein Schutzblech",
+        "SKS Bluemels"
+      ],
+      "Schloss": [
+        "kein Schloss",
+        "AXA Faltschloss Fold 100",
+        "Abus Faltschloss Bordo Granit X-Plus 6500/85"
+      ],
+      "Licht": [
+        "kein Lich",
+        "Frontlicht",
+        "Rücklicht",
+        "Front- und Rücklicht"
+      ]
+    }
+  }
+}
