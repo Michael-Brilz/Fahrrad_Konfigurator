@@ -17,7 +17,7 @@ window.onload = function () {
   for (var typ in bikeArray) {
     typSel.options[typSel.options.length] = new Option(typ, typ);
   }
-
+  
   //Give Model
   typSel.onchange = function () {
     modelSel.length = 1; //remove all options first
@@ -31,9 +31,11 @@ window.onload = function () {
     deleteArray(0);
     //Function to push the content of the option into the array
     getItem(typSel);
+    getImg(typSel);
+  
   };
 
-  typSel.onchange();
+typSel.onchange();
 
   //Give Size
   modelSel.onchange = function () {
@@ -52,7 +54,10 @@ window.onload = function () {
     deleteArray(1);
     //Function to push the content of the option into the array
     getItem(modelSel);
+    getPrice();
+    ;
   };
+
   //Give Color
   sizeSel.onchange = function () {
     colorSel.length = 1;
@@ -191,18 +196,62 @@ window.onload = function () {
   function getItem(selTyp) {
     var text = selTyp.options[selTyp.selectedIndex].text;
     shoppingCArray.push(text);
+    test(text);
     createList();
   }
-
+  //Get the Price from String
+  function test(text) {
+    var price = text.trim().split(" ");
+    console.log(price[price.length - 2]);
+  }
+  //Get Price
+  function getPrice() {
+    var prices = bikeArray[typSel.value][modelSel.value];
+    for (var priceVar = 0; priceVar < prices.price.length; priceVar++) {
+      var modelPrice = prices.price[priceVar];
+      return modelPrice;
+    }
+  }
+  //Create image in card (index.ejs)
+  function getImg(value) {
+  //Read the text from the option
+    var img = value.options[value.selectedIndex].text;
+    switch (img){
+      case 'Mountainbike':
+        var image = `<img src="./image/Mountainbike.png" class="card-img-top" alt="Mountainbike">`;
+        document.getElementById("img-class").innerHTML = image;
+        break;
+        case 'Ebike':
+          var image = `<img src="./image/E-Bike.png" class="card-img-top" alt="E-Bike">`;
+          document.getElementById("img-class").innerHTML = image;
+        break;
+        case 'Trekking':
+          var image = `<img src="./image/Trekking.png" class="card-img-top" alt="Trekkingbike">`;
+          document.getElementById("img-class").innerHTML = image;
+        break;
+        case 'Rennrad':
+          var image = `<img src="./image/Rennrad.png" class="card-img-top" alt="Rennrad">`;
+          document.getElementById("img-class").innerHTML = image;
+        break;
+    }
+    
+  }
+   //Create description in card (index.ejs)
+   function getDes() {
+    var des = bikeArray[typSel.value][modelSel.value];
+    for (var desVar = 0; desVar < des.description.length; desVar++) {
+      var modelDescription = des.description[desVar];
+      document.getElementById("cardText").innerHTML = modelDescription;
+    }
+   
+  }
   //Create Ul and li in index.ejs
-  function createList() {
+  function createList() { 
     var str = '<ul class="list-group">';
-
     shoppingCArray.forEach(function (items) {
       str +=
         '<li class="list-group-item list-group-item-info">' + items + "</li>";
     });
-
     str += "</ul>";
     document.getElementById("slideContainer").innerHTML = str;
   }

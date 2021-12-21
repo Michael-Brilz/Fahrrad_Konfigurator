@@ -18,73 +18,75 @@
   <title>Fahrradkonfigurator</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container-xl">
     <div class="row justify-content-md-center">
-      <div class="col-sm text-center">
-        <button id="button1" class="button-menu" type="button" onclick="openModel()">Modell</button>
-        <button id="button2" class="button-menu" type="button" onclick="openBasic()">Basics</button>
-        <button id="button3" class="button-menu" type="button" onclick="openExtra()">Extras</button>
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="row">
-          <div class="col">
-            <div class="collapse multi-collapse" id="multiCollapseExample1">
-              <div class="card card-body">
-      
-                <label for="exampleInputEmail1">Typ</label>
-                <select class="selectClass" id="typSel" >
-                
-                  <option value="" selected="selected">Typ</option>
-               
-                </select>
-                <br>
-                <label for="exampleInputEmail1">Modell</label>
-                <select class="selectClass" id="modelSel" ><option value="" selected="selected">Model</option></select>
-                <br>
-                <label for="exampleInputEmail1">Rahmengröße</label>
-                <select class="selectClass" id="sizeSel" ><option value="" selected="selected">Rahmengröße</option></select>
-                <br>
-                <label for="exampleInputEmail1">Farbe</label>
-                <select class="selectClass" id="colorSel" ><option value="" selected="selected">Farbe</option></select>
-              </div>
-            </div>
+      <div class="col-6 text-center">
+        <div class="card p-2" style="width: 24rem;">
+          <div id="img-class">
           </div>
-          <div class="col">
-            <div class="collapse multi-collapse" id="multiCollapseExample2">
-              <div class="card card-body">
-                <label for="exampleInputEmail1">Bremsen</label>
-                <select class="selectClass" id="brakeSel" ><option value="" selected="selected">Bremsen</option></select>
-                <br>
-                <label for="exampleInputEmail1">Reifen</label>
-                <select class="selectClass" id="tireSel"><option value="" selected="selected">Reifen</option></select>
-                <br>
-                <label for="exampleInputEmail1">Schalt- und Antriebsgruppe</label> 
-                <select class="selectClass" id="shiftSel"><option value="" selected="selected">Schaltung</option></select>
-              </div>
-            </div>
-            <div class="col">
-              <div class="collapse multi-collapse" id="multiCollapseExample3">
-                <div class="card card-body">
-                  <label for="exampleInputEmail1">Schutzblech</label> 
-                  <select class="selectClass" id="mudSel"><option value="" selected="selected">Schutzblech</option></select>
-                  <br>
-                  <label for="exampleInputEmail1">Schloss</label> 
-                  <select class="selectClass" id="lockSel"><option value="" selected="selected">Schloss</option></select>
-                  <br>
-                  <label for="exampleInputEmail1">Licht</label> 
-                  <select class="selectClass" id="lightSel"><option value="" selected="selected">Licht</option></select>
+          <div class="card-body">
+            <h5 class="card-title">Warenkorb
+            </h5>
+            <p id="cardText">
+   
+            </p>
+          </div>
+         <div id="slideContainer"></div>
+        </div>
+      </div>
+      <div class="col-6 justify-content-md-center">
+                <div class="col-sm text-center">
+                  <button id="button1" class="button-menu" type="button" onclick="openModel()">Modell</button>
+                  <button id="button2" class="button-menu" type="button" onclick="openBasic()">Basics</button>
+                  <button id="button3" class="button-menu" type="button" onclick="openExtra()">Extras</button>
+                </div>
+              <div class="row ">
+                <div class="col text-center">
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="card card-body w-50 p-3  justify-content-center selectCard">
+                      <label for="exampleInputEmail1">Typ</label>
+                      <select class="selectClass" id="typSel" ><option value="" selected="selected">Typ</option>
+                     </select>
+                      <br>
+                      <label for="exampleInputEmail1">Modell</label>
+                      <select class="selectClass" id="modelSel" ><option value="" selected="selected">Model</option></select>
+                      <br>
+                      <label for="exampleInputEmail1">Rahmengröße</label>
+                      <select class="selectClass" id="sizeSel" ><option value="" selected="selected">Rahmengröße</option></select>
+                      <br>
+                      <label for="exampleInputEmail1">Farbe</label>
+                      <select class="selectClass" id="colorSel" ><option value="" selected="selected">Farbe</option></select>
+                    </div>
+                  </div>
+                  <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <div class="card card-body w-50 p-3  justify-content-center selectCard">
+                      <label for="exampleInputEmail1">Bremsen</label>
+                      <select class="selectClass" id="brakeSel" ><option value="" selected="selected">Bremsen</option></select>
+                      <br>
+                      <label for="exampleInputEmail1">Reifen</label>
+                      <select class="selectClass" id="tireSel"><option value="" selected="selected">Reifen</option></select>
+                      <br>
+                      <label for="exampleInputEmail1">Schalt- und Antriebsgruppe</label> 
+                      <select class="selectClass" id="shiftSel"><option value="" selected="selected">Schaltung</option></select>
+                    </div>
+                  </div>
+                  <div class="collapse multi-collapse" id="multiCollapseExample3">
+                    <div class="card card-body w-50 p-3  justify-content-center selectCard">
+                      <label for="exampleInputEmail1">Schutzblech</label> 
+                      <select class="selectClass" id="mudSel"><option value="" selected="selected">Schutzblech</option></select>
+                      <br>
+                      <label for="exampleInputEmail1">Schloss</label> 
+                      <select class="selectClass" id="lockSel"><option value="" selected="selected">Schloss</option></select>
+                      <br>
+                      <label for="exampleInputEmail1">Licht</label> 
+                      <select class="selectClass" id="lightSel"><option value="" selected="selected">Licht</option></select>
+                    </div>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
-    <div id="slideContainer">
-    
-    </div>
   
     <script type="module" src="./js/bikeCall.js"></script> 
     <script type="text/javascript" src="./js/collapse.js"></script>
