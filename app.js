@@ -20,6 +20,11 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 
+//Static Files
+app.use('/css', express.static(__dirname + 'public/css'))
+app.use('/image', express.static(__dirname + 'public/image'))
+app.use('/js', express.static(__dirname + 'public/js'))
+
 // Set layout
 app.set('layout', './layouts/main');
 

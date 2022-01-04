@@ -1,6 +1,8 @@
 import { bikeArray } from "./mock.js";
 //Array for shopping cart items
 var shoppingCArray = [];
+//Array for prices
+var pricesBike = [];
 
 window.onload = function () {
   var typSel = document.getElementById("typSel"),
@@ -16,6 +18,7 @@ window.onload = function () {
 
   for (var typ in bikeArray) {
     typSel.options[typSel.options.length] = new Option(typ, typ);
+    console.log(bikeArray);
   }
   
   //Give Model
@@ -32,10 +35,9 @@ window.onload = function () {
     //Function to push the content of the option into the array
     getItem(typSel);
     getImg(typSel);
-  
   };
 
-typSel.onchange();
+
 
   //Give Size
   modelSel.onchange = function () {
@@ -54,8 +56,9 @@ typSel.onchange();
     deleteArray(1);
     //Function to push the content of the option into the array
     getItem(modelSel);
-    getPrice();
-    ;
+    //
+    getDes();
+  
   };
 
   //Give Color
@@ -191,27 +194,30 @@ typSel.onchange();
   //Delete items in shopping cart by Index
   function deleteArray(i) {
     shoppingCArray.splice(i);
+    pricesBike.splice(i);
+
   }
   //Get items for shopping cart
   function getItem(selTyp) {
     var text = selTyp.options[selTyp.selectedIndex].text;
-    shoppingCArray.push(text);
     test(text);
-    createList();
+    createListItem();
+    createListPrice();
   }
   //Get the Price from String
   function test(text) {
     var price = text.trim().split(" ");
-    console.log(price[price.length - 2]);
+    var newPrice = price[price.length - 2]
+    //Remove the last 2 words
+    var sRegExInput = new RegExp(newPrice, "g");    
+    var ret = text.replace('+','').replace(sRegExInput, '').replace('Euro', '');
+    shoppingCArray.push(ret);
+    pricesBike.push(newPrice);
+    
+    return newPrice;
   }
-  //Get Price
-  function getPrice() {
-    var prices = bikeArray[typSel.value][modelSel.value];
-    for (var priceVar = 0; priceVar < prices.price.length; priceVar++) {
-      var modelPrice = prices.price[priceVar];
-      return modelPrice;
-    }
-  }
+
+
   //Create image in card (index.ejs)
   function getImg(value) {
   //Read the text from the option
@@ -245,14 +251,35 @@ typSel.onchange();
     }
    
   }
-  //Create Ul and li in index.ejs
-  function createList() { 
-    var str = '<ul class="list-group">';
+  //Create Ul and li in index.ejs with items
+  function createListItem() { 
+    var str = '<ul class="list-group list-group-flush">';
     shoppingCArray.forEach(function (items) {
       str +=
-        '<li class="list-group-item list-group-item-info">' + items + "</li>";
+        '<li class="list-group-item" style="height: 55px;">' + items +  "</li>";
     });
     str += "</ul>";
-    document.getElementById("slideContainer").innerHTML = str;
+    document.getElementById("listContainerItem").innerHTML = str;
   }
+  //Create list with price
+   function createListPrice() { 
+    var ulList = '<ul class="list-group list-group-flush">';
+    pricesBike.forEach((items) => {
+      if(items === undefined){
+        ulList +=
+        '<li class="list-group-item" style="height: 55px;">' + "0.00 " + "Euro" + "</li>";
+
+      }else{
+        ulList +=
+        '<li class="list-group-item" style="height: 55px;">' + items + " Euro" + "</li>";
+      }
+      
+    });
+    ulList += "</ul>";
+    document.getElementById("listContainerPrice").innerHTML = ulList;
+  }
+
 };
+
+
+
