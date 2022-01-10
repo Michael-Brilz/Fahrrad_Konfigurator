@@ -198,13 +198,13 @@ window.onload = function () {
   //Get items for shopping cart
   function getItem(selTyp) {
     var text = selTyp.options[selTyp.selectedIndex].text;
-    test(text);
+    selectPrice(text);
     createListItem();
     createListPrice();
     convertArray();
   }
-  //Get the Price from String
-  function test(text) {
+  //Select Price
+  function selectPrice(text) {
     var price = text.trim().split(" ");
     var newPrice = price[price.length - 2];
     //Remove the last 2 words
